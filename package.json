@@ -1,0 +1,39 @@
+{
+  "name": "markdown-report-mail",
+  "version": "1.0.0",
+  "description": "哈希表 Markdown 報告在線編寫系統.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PBK-B/hxb_report_md_edit.git"
+  },
+  "keywords": [
+    "wechat",
+    "markdown",
+    "format"
+  ],
+  "author": "PBK bin <pbk9.bin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PBK-B/hxb_report_md_edit/issues"
+  },
+  "homepage": "https://github.com/PBK-B/hxb_report_md_edit/",
+  "dependencies": {
+    "copy-webpack-plugin": "^4.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.10.0",
+    "jsx-loader": "^0.13.2",
+    "less": "2.7.2",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "2.1.0-beta.9"
+  }
+}
