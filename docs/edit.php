@@ -6,8 +6,8 @@
   <link rel="shoticon" href="./favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
   <meta name="email" content="PBK-B@PBK6.cn">
-  <meta name="description" content="一款简单易用的微信公众号格式化工具，主要针对代码做格式化处理。">
-  <title>Online Markdown Converter</title>
+  <meta name="description" content="报告邮件在线编辑生成系统，大量优质模版致力解决各种报告书写困难…">
+  <title>报告在线编辑器_<?php echo isset($_GET['data']) ? $_GET['data'] : ''; ?>邮件在线编辑 - 哈希坊网络</title>
   <script>
     var data_test = "<?php echo isset($_GET['data']) ? $_GET['data'] : ''; ?>"
   </script>
@@ -138,7 +138,7 @@
             <p class="active-model-topbuts active-model-topbuts-red" title="关闭" onclick="offSetting()"></p>
           </div>
           <div style="min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-yellow" title="恢复默认"></p>
+            <p class="active-model-topbuts active-model-topbuts-yellow" title="恢复默认" onclick="SttingRes()"></p>
           </div>
           <div style="min-width: 2rem;text-align: center;justify-content: center;">
             <p class="active-model-topbuts active-model-topbuts-green" title="保存" onclick="SttingGo()"></p>
@@ -161,14 +161,14 @@
         <h2 style="margin-top: 2.5rem;margin-bottom: 0;">个性设置</h2>
         <div class="theme-wrapper">
           <label>背景颜色：</label>
-          <input type="text" value="#FFF" autocomplete="off" placeholder="test is" style="padding: 0 10px;"
-            id="outputCtt_color">
+          <input type="text" value="#FFF" autocomplete="off" placeholder="请输入颜色代码" style="padding: 0 10px;"
+            id="outputCtt_color"  οnkeypress="OutputCttColorEnterPress(event,'outputCtt_color')" onkeydown="OutputCttColorEnterPress(event,'outputCtt_color')">
           <i class="setting-colorblock" style="background: #4CAF50;" id="outputCtt_color_box"></i>
         </div>
         <div class="theme-wrapper">
           <label>标题字体颜色：</label>
-          <input type="text" value="#FFF" autocomplete="off" placeholder="test is" style="padding: 0 10px;"
-            id="font_color">
+          <input type="text" value="#FFF" autocomplete="off" placeholder="请输入颜色代码" style="padding: 0 10px;"
+            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
           <i class="setting-colorblock" style="background: #4CAF50;" id="font_color_box"></i>
         </div>
       </div>
@@ -185,6 +185,11 @@
     var e = window.event || e;
     e.returnValue = ("确定离开当前页面吗？");
   }
+
+  var stting_data = {
+    font_color: document.defaultView.getComputedStyle(document.getElementsByTagName('h2')[0], null).color,
+    outputCtt_color: document.defaultView.getComputedStyle(document.getElementById('outputCtt'), null).backgroundColor
+  };
 
   function onSetting() {
 
@@ -233,6 +238,22 @@
     offSetting();
   }
 
+  function SttingRes() {
+    var tag_color = stting_data.font_color;
+    setHtagColor(tag_color ? tag_color : '#000');
+    var bj_color = stting_data.outputCtt_color;
+    setOutputCttColor(bj_color ? bj_color : '#FFF');
+    offSetting();
+  }
+
+  function OutputCttColorEnterPress(e,tag) {
+    var e = e || window.event;
+    if(e.keyCode == 13){
+      // 监听回车事件
+      var tag_color = document.getElementById(tag).value;
+      document.getElementById(tag + '_box').style.backgroundColor = tag_color;
+    }
+  }
 
 </script>
 
