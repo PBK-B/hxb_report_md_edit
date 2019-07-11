@@ -8,6 +8,10 @@
   margin-left: 5%;
 }
 
+.wrapper table {
+  width: 90%;
+}
+
 .wrapper p {
   font-size: 16px;
   white-space: pre-line;
