@@ -216,13 +216,18 @@
   }
 
   function setHtagColor(color) {
-    // 设置报告全部 h 标签字体颜色
-    for (var i = 0; i < 6; i++) {
-      var HTag = document.getElementsByTagName('h' + i);
-      for (var i2 = 0; i2 < HTag.length; i2++) {
-        HTag[i2].style.color = color;
-      }
-    }
+
+    // 设置报告全部 h 标签字体颜色 ( 该方法有Bug,被废弃 )
+    // for (var i = 0; i < 6; i++) {
+    //   var HTag = document.getElementsByTagName('h' + i);
+    //   for (var i2 = 0; i2 < HTag.length; i2++) {
+    //     HTag[i2].style.color = color;
+    //   }
+    // }
+
+    // 添加css设置全局 h 标签字体颜色
+    addCSS('h1,h2,h3,h4,h5,h6{ color:'+ color +';}');
+
   }
 
   function setOutputCttColor(color) {
@@ -254,6 +259,36 @@
       document.getElementById(tag + '_box').style.backgroundColor = tag_color;
     }
   }
+
+  function addCSS(cssText){
+    // 创建一个style元素并获取head元素
+    var style = document.createElement('style'),head = document.head || document.getElementsByTagName('head')[0];
+    style.type = 'text/css';
+    // 这里必须显示设置style元素的type属性为text/css，否则在ie中不起作用
+    if(style.styleSheet){
+      var func = function(){
+          try {
+            // 防止IE中stylesheet数量超过限制而发生错误
+            style.styleSheet.cssText = cssText;
+          }catch(e) {
+
+          }
+      }
+      // 如果当前styleSheet还不能用，则放到异步中则行
+      if(style.styleSheet.disabled){
+        setTimeout(func,10);
+      } else {
+        func();
+      }
+    } else {
+      // w3c浏览器中只要创建文本节点插入到style元素中就行了
+      var textNode = document.createTextNode(cssText);
+      style.appendChild(textNode);
+    }
+    // 把创建的style元素插入到head中
+    head.appendChild(style);
+  }
+
 
 </script>
 
