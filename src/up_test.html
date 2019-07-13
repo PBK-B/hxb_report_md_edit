@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <title>测试图片上传！</title>
+</head>
+
+<body>
+    <form action="http://haxibiao.local/api/image/upload" method="POST" id="upform" enctype='multipart/form-data'>
+        <div class="form-group">
+            <label for="upteainput">上传文件</label>
+            <input id="upteainput" name="picfile" type="file" class="form-control-file">
+        </div>
+        <input type="submit" value="提交" />
+
+        <div id="drop_area" style="height: 20vh;width: 20vh;background: #EEE;text-align: center;">
+            <p style="visibility: hidden;color: #F66;" id="test_text">将图片拖拽到此区域</p>
+        </div>
+        <div id="preview" style="padding: 2%;"></div>
+    </form>
+</body>
+
+<script>
+
+    (function () {
+
+        // 阻止浏览器默认行
+        document.addEventListener("dragleave", function (e) {
+            // 拖离窗口事件
+            console.log("脱离");
+
+            document.getElementById('test_text').style.visibility = "hidden";
+            e.preventDefault();
+        }, false);
+        document.addEventListener("drop", function (e) {
+            // 拖放到窗口事件
+            console.log('窗口拖放');
+            document.getElementById('test_text').style.visibility = "hidden";
+            e.preventDefault();
+        }, false);
+        document.addEventListener("dragenter", function (e) {
+            // 拖
+            document.getElementById('test_text').style.visibility = "hidden";
+            e.preventDefault();
+        }, false);
+        document.addEventListener("dragover", function (e) {
+            // 拖入窗口事件
+            console.log('拖入');
+            document.getElementById('test_text').style.visibility = "visible";
+            e.preventDefault();
+        }, false);
+
+        var box = document.getElementById('drop_area'); //拖拽区域 
+        box.addEventListener("drop", function (e) {
+            e.preventDefault(); //取消默认浏览器拖拽效果 
+            var fileList = e.dataTransfer.files; //获取文件对象 
+            // 检测是否是拖拽文件到页面的操作 
+            if (fileList.length == 0) {
+                return false;
+            }
+            //检测文件是不是图片 
+            if (fileList[0].type.indexOf('image') === -1) {
+                alert("您拖的不是图片！");
+                return false;
+            }
+
+            // 拖拉图片到浏览器，可以实现预览功能 
+            var img = window.webkitURL.createObjectURL(fileList[0]);
+            var filename = fileList[0].name; //图片名称 
+            var filesize = Math.floor((fileList[0].size) / 1024);
+            if (filesize > 500) {
+                alert("上传大小不能超过500K.");
+                return false;
+            }
+            var str = "<img src='" + img + "'><p>图片名称：" + filename + "</p><p>大小：" + filesize + "KB</p>";
+            document.getElementById("preview").innerHTML = str;
+
+            //上传 
+            xhr = new XMLHttpRequest();
+            xhr.open("post", "http://haxibiao.local/api/image/upload", true);
+            // xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+            var fd = new FormData();
+            fd.append('picfile', fileList[0]);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status <= 201) {
+                    console.log(JSON.parse(xhr.responseText).data.path);
+                }
+            }
+            xhr.send(fd);
+
+        }, false);
+    })();
+
+</script>
+
+
+</html>
