@@ -6,16 +6,16 @@ By：xxx
 ### 上周工作
 
 - 修复Bug若干
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 - 添加很多新功能
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 - 优化部分 UI
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 - 参加团队建设
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 ### 这周计划
 
@@ -28,6 +28,6 @@ By：xxx
 > 今天在做 xx 功能的时候遇到 xxx 问题，具体原因是这样的……
 
 ### 知识共享
-博客：[来看看我是如何玩PHP自启动的？](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
-视频：[某高中生居然玩这款APP月如过万？](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+博客：[来看看我是如何玩PHP自启动的？](http://code/test/commit/123)
+视频：[某高中生居然玩这款APP月如过万？](http://code/test/commit/123)
 

@@ -70,8 +70,8 @@ module.exports = {
             },
             {
                 context: path.join(__dirname, './src'),
-                from: "CNAME",
-                to: '../CNAME',
+                from: "css/main.css",
+                to: '../css/index.css',
                 toType: 'file',
                 force: true
             }

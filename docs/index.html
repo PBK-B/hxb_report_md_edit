@@ -1,18 +1,162 @@
-<!DOCTYPE html>
-<html lang="cn">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>哈希表科技报告编辑器</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>报告在线编辑系统，报告模版大全！</title>
+    <link rel="stylesheet" href="./css/index.css" type="text/css" media="all">
+
 </head>
 
 <body>
-    <a href="./edit.php?data=个人日报">个人日报</a>
-    <a href="./edit.php?data=个人周报">个人周报</a>
-    <a href="./edit.php?data=产品经理日报">产品经理日报</a>
-    <a href="./edit.php?data=产品经理周报">产品经理周报</a>
+
+    <div class="app">
+        <div class="site-main col px-lg-4 ">
+            <div class="container">
+                <div id="search-2" class="widget widget_search" style="margin-top: 3rem;visibility: hidden;">
+                    <form role="search" method="get" id="searchform" class="searchform" action="#aaa">
+                        <div class="search-input form-group m-0">
+                            <label class="screen-reader-text" for="s">Search for:</label>
+                            <input type="text" placeholder="请输入搜索关键词" class="form-control" value="" name="s" id="s"
+                                required="">
+                            <button class="btn" type="submit" id="searchsubmit">
+                                <i class="iconfont icon-search-outline"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <main class="py-4 py-xl-5" style="height: 80%;">
+
+                    <div class="list-header h3 my-4">推荐模版</div>
+
+                    <div class="list-index row row-md my-n2 my-lg-n3">
+                        <div class="col-12 col-md-6 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media media-36x17 flex-fill">
+                                    <a href="#" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/15630965094CjL4tpxR5yP8iSe.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <span class="badge badge-md text-uppercase bg-white-overlay">系统公告</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-content">
+                                    <div class="list-title h6 h-2x">让报告变得简洁，联系维护者，添加更多模版！</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media  flex-fill">
+                                    <a href="https://github.com/PBK-B/hxb_report_md_edit" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/1563096585gO2aVhhnKvaIXwi9.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <span class="badge badge-md text-uppercase bg-white-overlay">更新</span>
+                                    </div>
+                                </div>
+                                <div class="list-content ">
+                                    <div class="list-title h6 h-2x">在线报告编辑器 v1.2 更新啦，新增图片上传功能</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media  flex-fill">
+                                    <a href="./edit.php?data=demo" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/1563098018Y7icvP7UgJMWooaF.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <span class="badge badge-md text-uppercase bg-white-overlay">开始</span>
+                                    </div>
+                                </div>
+                                <div class="list-content ">
+                                    <div class="list-title h6 h-2x">Markdown 语法简单教程</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media  flex-fill">
+                                    <a href="./edit.php?data=个人日报" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/1563098380EpgY9EUBHsTd1oDt.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <span class="badge badge-md text-uppercase bg-white-overlay">日报</span>
+                                    </div>
+                                </div>
+                                <div class="list-content ">
+                                    <div class="list-title h6 h-2x">互联网公司个人日报模版</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media  flex-fill">
+                                    <a href="./edit.php?data=个人周报" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/1563098436C9roP7obaLaIgVQC.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <span class="badge badge-md text-uppercase bg-white-overlay">周报</span>
+                                    </div>
+                                </div>
+                                <div class="list-content ">
+                                    <div class="list-title h6 h-2x">互联网公司个人周报模版</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media  flex-fill">
+                                    <a href="./edit.php?data=产品经理日报" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/1563098458AKDHJeAOTRG0TucL.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <a href="#6666">
+                                            <span class="badge badge-md text-uppercase bg-white-overlay">日报</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-content ">
+                                    <div class="list-title h6 h-2x">互联网公司产品经理日报模版</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 d-flex py-3">
+                            <div class="list-item list-nice-overlay block flex-fill">
+                                <div class="media  flex-fill">
+                                    <a href="./edit.php?data=产品经理周报" class="media-content"
+                                        style="background-image:url(http://cos.haxibiao.com/storage/image/1563098487M8lh99clA6vZ2fG5.jpg)">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="media-overlay overlay-top p-2 p-lg-3">
+                                        <span class="badge badge-md text-uppercase bg-white-overlay">周报</span>
+                                    </div>
+                                </div>
+                                <div class="list-content ">
+                                    <div class="list-title h6 h-2x">互联网公司产品经理周报模版</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="border-top border-light text-xs text-center py-4 py-xl-5">
+                    Copyright © 2019 <a href="https://github.com/PBK-B/hxb_report_md_edit" title="哈希坊报告在线编辑系统"
+                        rel="home">哈希坊报告在线编辑系统</a>. Developer by <a href="https://bin.zmide.com/?url=edit.PBK6.cn"
+                        title="天真的小窝" target="_blank">天真</a>.<br></footer>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

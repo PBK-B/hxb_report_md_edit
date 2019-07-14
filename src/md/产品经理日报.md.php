@@ -12,7 +12,7 @@ By：xxx
 - 建设 xx 项目内容建设,发布 xx 篇文章
 
 - 参加团队建设
-相关链接：[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+相关链接：[PM 面板链接](http://code/test/commit/123)
 
 ### 今日工作安排
 

@@ -6,16 +6,16 @@ By：xxx
 ### 昨天做了啥？
 
 - 修复Bug若干
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 - 添加很多新功能
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 - 优化部分 UI
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 - 参加团队建设
-跟踪工作：[Git Lab 链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4) ，[PM 面板链接](http://code/web/haxibiao.com/commit/ba46db85874b659546c1282110627f36b19892e4)
+跟踪工作：[Git Lab 链接](http://code/test/commit/123) ，[PM 面板链接](http://code/test/commit/123)
 
 ### 今天要做啥？
 
