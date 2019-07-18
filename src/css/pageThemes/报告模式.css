@@ -22,11 +22,9 @@
 
 .wrapper blockquote {
   line-height: 22px;
+  font-size: 16px !important;
 }
 
-.wrapper blockquote p {
-  font-size: 14px;
-}
 
 .wrapper h1 {
   font-size: 28px;

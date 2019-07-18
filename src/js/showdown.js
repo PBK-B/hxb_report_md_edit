@@ -1808,11 +1808,7 @@ showdown.subParser('headers', function (text, options, globals) {
 
   // 匹配 Logo
   text = text.replace(/^<Logo>/gm, function (wholeMatch, m1, m2) {
-    var span = showdown.subParser('spanGamut')(m2, options, globals),
-      hID = (options.noHeaderId) ? '' : ' id="' + headerId(m2) + '"',
-      hLevel = headerLevelStart - 1 + m1.length,
-      header = '<div id="logo"><img width="200px" height="80px" style="border: none;margin-left: auto;display: block;" alt="哈希坊Logo" src="http://cos.haxibiao.com/logo/hxf_logo.svg" /></div>';
-
+    var header = '<div id="logo"><img width="200px" height="80px" style="border: none;margin-left: auto;display: block;" alt="哈希坊Logo" src="http://cos.haxibiao.com/logo/hxf_logo.svg" /></div>';
     return showdown.subParser('hashBlock')(header, options, globals);
   });
 
