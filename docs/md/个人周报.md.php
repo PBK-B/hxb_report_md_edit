@@ -1,5 +1,5 @@
 <Logo>
-# <?php echo date('Y') . '年' . date('m') . '月第' . intval(date('W') / 12) ?>周报
+# <?php echo date('Y') . '年' . date('m') . '月第' . (intval(date("W", time())) - intval(date("W", strtotime(date("Y-m-01", time())))) + 1) ?>周报
 By：xxx
 ****
 
