@@ -241,6 +241,14 @@
     outputCtt_color: document.defaultView.getComputedStyle(document.getElementById('outputCtt'), null).backgroundColor
   };
 
+  var us_OutputCttColor = localStorage.us_OutputCttColor ? localStorage.us_OutputCttColor : stting_data.outputCtt_color ;
+  var us_HtagColor = localStorage.us_HtagColor ? localStorage.us_HtagColor : stting_data.font_color;
+  
+  setOutputCttColor(us_OutputCttColor);
+  setHtagColor(us_HtagColor);
+	
+  document.getElementById('input').value = '#666';
+
   // 打开设置弹窗
   function onSetting() {
 
@@ -288,6 +296,7 @@
     //   }
     // }
 
+	localStorage.us_HtagColor=color;
     // 添加css设置全局 h 标签字体颜色
     addCSS('h1,h2,h3,h4,h5,h6{ color:'+ color +';}');
 
@@ -296,6 +305,7 @@
   // 设置报告背景颜色
   function setOutputCttColor(color) {
     document.getElementById('outputCtt').style.backgroundColor = color;
+	localStorage.us_OutputCttColor=color;
   }
 
   // 应用设置
