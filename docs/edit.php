@@ -470,6 +470,8 @@
 	function setMe() {
 		var ByNameVal = document.getElementById('font_by_name').value;
 		localStorage.us_ByName = ByNameVal ? ByNameVal : "xxx";
+
+		offModel('me-active');
 	}
 
 
