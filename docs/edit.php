@@ -11,7 +11,7 @@
   <script>
     var data_test = "<?php echo isset($_GET['data']) ? $_GET['data'] : ''; ?>";
     // 图片上传 API，api = 接口 url ，file = 文件参数
-    var upload_c = { 
+    var upload_c = {
       api : "https://sm.ms/api/upload",
       file : "smfile"
     };
@@ -20,11 +20,12 @@
       // 图片上传回调，需要返回图片 URL
       return e.data.url;
     }
-    // var upload_c = { 
+    // var upload_c = {
     //   api : "http://haxibiao.local/api/image/upload",
     //   file : "picfile"
     // };
   </script>
+  <script src="./js/turndown.js"></script>
   <script src="./js/index.js"></script>
   <link rel="stylesheet" href="./themes/github-v2.css" id="codeThemeId" />
   <link rel="stylesheet" id="pageThemeId" />
@@ -243,10 +244,10 @@
 
   var us_OutputCttColor = localStorage.us_OutputCttColor ? localStorage.us_OutputCttColor : stting_data.outputCtt_color ;
   var us_HtagColor = localStorage.us_HtagColor ? localStorage.us_HtagColor : stting_data.font_color;
-  
+
   setOutputCttColor(us_OutputCttColor);
   setHtagColor(us_HtagColor);
-	
+
   document.getElementById('input').value = '#666';
 
   // 打开设置弹窗
@@ -459,29 +460,29 @@
       e.preventDefault();
       onUploadModel();
     }, false);
-    
-    // 拖拽区域 
+
+    // 拖拽区域
     var box = document.getElementById('upload-win');
     box.addEventListener("drop", function (e) {
         // 取消默认浏览器拖拽效果
         e.preventDefault();
-        // 获取文件对象 
+        // 获取文件对象
         var fileList = e.dataTransfer.files;
 
-        // 检测是否是拖拽文件到页面的操作 
+        // 检测是否是拖拽文件到页面的操作
         if (fileList.length == 0) {
             return false;
         }
-        //检测文件是不是图片 
+        //检测文件是不是图片
         if (fileList[0].type.indexOf('image') === -1) {
             alert("你拖的不是图片！");
             return false;
         }
 
-        // 拖拉图片到浏览器，可以实现预览功能 
+        // 拖拉图片到浏览器，可以实现预览功能
         // var img = window.webkitURL.createObjectURL(fileList[0]);
         // 获取图片名称
-        var filename = fileList[0].name; 
+        var filename = fileList[0].name;
         var filesize = Math.floor((fileList[0].size) / 1024);
         if (filesize > 500) {
           alert("上传大小不能超过500K.");
@@ -515,6 +516,90 @@
 
   function onUploadModel() {
     document.getElementById('upload-model').style.visibility = "visible";
+  }
+
+</script>
+
+<script>
+  var turndownService = new window.TurndownService();
+  // 初始化 html 转 mkd 工具
+
+  var editableDiv = document.getElementById('input');
+  // 获取编辑框对象
+
+  function handlepaste (e) {
+      var types, pastedData, savedContent;
+
+      // Browsers that support the 'text/html' type in the Clipboard API (Chrome, Firefox 22+)
+      if (e && e.clipboardData && e.clipboardData.types && e.clipboardData.getData) {
+
+        // 在类型列表中检查 "text/html"，关于 deatils ，请参阅下面的 abligh 的答案
+        // 需要 DOMStringList 位，我们不需要处理 'text/plain' 的内容，直接返回就好了
+        // Safari/Edge 也是直接返回就好了
+        types = e.clipboardData.types;
+        if (((types instanceof DOMStringList) && types.contains("text/html")) || (types.indexOf && types.indexOf('text/html') !== -1)) {
+
+          // 提取数据并将其传递给回调
+          pastedData = e.clipboardData.getData('text/html');
+          processPaste(editableDiv, pastedData);
+
+          // 停止实际粘贴数据
+          e.stopPropagation();
+          e.preventDefault();
+          return false;
+        }
+      }
+
+      // 将现有元素内容移动到 DocumentFragment 以便保存数据
+      savedContent = document.createDocumentFragment();
+      while(editableDiv.childNodes.length > 0) {
+          savedContent.appendChild(editableDiv.childNodes[0]);
+      }
+
+      // 等待浏览器将内容粘贴到其中并进行清理
+      waitForPastedData(editableDiv, savedContent);
+      return true;
+  }
+
+  function waitForPastedData (elem, savedContent) {
+
+      // 数据已由浏览器处理，对其进行处理
+      if (elem.childNodes && elem.childNodes.length > 0) {
+
+          // 通过 innerHTML 检索粘贴的内容
+          // 或者在这里循环遍历 elem.childNodes 或 elem.getElementsByTagName
+          var pastedData = elem.innerHTML;
+
+          // 恢复保存的内容
+          elem.innerHTML = "";
+          elem.appendChild(savedContent);
+
+          // 跳转返回数据
+          processPaste(elem, pastedData);
+      }
+
+      // 等待20毫秒再试一次
+      else {
+          setTimeout(function () {
+              waitForPastedData(elem, savedContent)
+          }, 20);
+      }
+  }
+
+  function processPaste (elem, pastedData) {
+      // 取到粘贴的 Html 数据为 pastedData
+      var mkd = turndownService.turndown(pastedData);
+      // console.log(mkd);
+      insertAtCursor(document.getElementById('input'), mkd);
+      elem.focus();
+  }
+
+  if (editableDiv.addEventListener) {
+    editableDiv.addEventListener('paste', handlepaste, false);
+    // 现代浏览器，注意：Firefox <= 6 需要第3个参数
+  } else {
+    editableDiv.attachEvent('onpaste', handlepaste);
+    // IE <= 8
   }
 
 </script>
