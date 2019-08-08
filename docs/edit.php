@@ -129,7 +129,7 @@
       <div class="header-opts">
         <button class="c-btn" data-clipboard-action="cut" data-clipboard-target="#outputCtt" id="cp_btn">全选报告</button>
         <button class="c-btn" id="st_btn" onclick="onSetting()">个性设置</button>
-        <a href="/home" class="header-link user-center">
+        <a class="header-link user-center" onclick="onMe()">
           <i class="com-avatar" style="background-image: url(&quot;https://haxibiao.com/image/head.jpg&quot;);"></i>
         </a>
       </div>
@@ -197,7 +197,7 @@
 
   </div>
 
-  <div class="active-model" style="visibility: hidden;" id="test-active" onclick="offModel('test-active')">
+  <div class="active-model" style="visibility: hidden;" id="me-active" onclick="offModel('me-active')">
 
     <div class="themes-config" style="padding: 25px 50px 80px;background: #FFF;" onclick="ooo000()">
 
@@ -216,14 +216,37 @@
       </div>
 
       <div>
-        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">Test 测试</h2>
+        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">模板配置</h2>
         <div class="theme-wrapper">
-          <label>测试：</label>
-          <input type="text" value="#FFF" autocomplete="off" placeholder="代码" style="padding: 0 10px;"
+          <label>By 用户名：</label>
+          <input type="text" value="xxx" autocomplete="off" placeholder="请输入姓名" style="padding: 0 10px;"
             id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
         </div>
       </div>
 
+      <div>
+        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">邮箱配置</h2>
+        <div class="theme-wrapper">
+          <label>邮箱用户名：</label>
+          <input type="text" value="test@haxibiao.com" autocomplete="off" placeholder="请输入邮箱" style="padding: 0 10px;"
+            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+        </div>
+		<div class="theme-wrapper">
+          <label>邮箱 SMTP 密码：</label>
+          <input type="text" value="" autocomplete="off" placeholder="请输入 SMTP 授权码" style="padding: 0 10px;"
+            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+        </div>
+      </div>
+
+      <div>
+        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">GitLab 配置</h2>
+        <div class="theme-wrapper">
+          <label>Commit SSR 链接：</label>
+          <input type="text" value="" autocomplete="off" placeholder="请输入 SSR 链接" style="padding: 0 10px;"
+            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+        </div>
+      </div>
+	
     </div>
 
   </div>
@@ -432,6 +455,12 @@
   }
 
 
+</script>
+
+<script>
+function onMe(){
+	onModel('me-active');
+}
 </script>
 
 <script>
