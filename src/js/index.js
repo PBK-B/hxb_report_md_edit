@@ -55,9 +55,10 @@ var OnlineMarkdown = {
     new Clipboard('#cp_btn');
   },
   load: function () {
+	var ByName_val = localStorage.us_ByName ? localStorage.us_ByName : 'xxx';
     return $.ajax({
       type: 'GET',
-      url: params.path || './md/' + (data_test ? data_test : 'demo') + '.md.php',
+      url: params.path || './md/' + (data_test ? data_test : 'demo') + '.md.php?by_name='+ByName_val,
       dateType: 'text',
       data: {
         _t: new Date() * 1
@@ -99,7 +100,12 @@ var OnlineMarkdown = {
     PR.prettyPrint();
     $('#outputCtt li').each(function () {
       $(this).html('<span><span>' + $(this).html() + '</span></span>');
-    });
+	});
+	
+	// var ByName_id = $('#ByName');
+	// var ByName_val = localStorage.us_ByName ? localStorage.us_ByName : 'xxx';
+	// ByName_id.text(ByName_val);
+
   }
 };
 

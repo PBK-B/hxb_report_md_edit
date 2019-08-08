@@ -205,13 +205,13 @@
       <div>
         <div style="margin-left: auto;display: flex;min-height: 2.5rem;">
           <div style="margin-left: auto;min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-red" title="关闭" onclick="offModel('test-active')"></p>
+            <p class="active-model-topbuts active-model-topbuts-red" title="关闭" onclick="offModel('me-active')"></p>
           </div>
           <div style="min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-yellow" title="恢复默认" onclick="offModel('test-active')"></p>
+            <p class="active-model-topbuts active-model-topbuts-yellow" title="恢复默认" onclick="offModel('me-active')"></p>
           </div>
           <div style="min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-green" title="保存" onclick="offModel('test-active')"></p>
+            <p class="active-model-topbuts active-model-topbuts-green" title="保存" onclick="setMe()"></p>
           </div>
         </div>
       </div>
@@ -221,7 +221,7 @@
         <div class="theme-wrapper">
           <label>By 用户名：</label>
           <input type="text" value="xxx" autocomplete="off" placeholder="请输入姓名" style="padding: 0 10px;"
-            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+            id="font_by_name" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
         </div>
       </div>
 
@@ -459,9 +459,20 @@
 </script>
 
 <script>
-function onMe(){
-	onModel('me-active');
-}
+
+  	// 打开用户面板
+	function onMe(){
+		onModel('me-active');
+		var ByName = localStorage.us_ByName ? localStorage.us_ByName : 'xxx';
+		document.getElementById('font_by_name').value = ByName;
+	}
+
+	function setMe() {
+		var ByNameVal = document.getElementById('font_by_name').value;
+		localStorage.us_ByName = ByNameVal ? ByNameVal : "xxx";
+	}
+
+
 </script>
 
 <script>

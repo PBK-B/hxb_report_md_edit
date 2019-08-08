@@ -130,7 +130,7 @@
       <div class="header-opts">
         <button class="c-btn" data-clipboard-action="cut" data-clipboard-target="#outputCtt" id="cp_btn">全选报告</button>
         <button class="c-btn" id="st_btn" onclick="onSetting()">个性设置</button>
-        <a href="/home" class="header-link user-center">
+        <a class="header-link user-center" onclick="onMe()">
           <i class="com-avatar" style="background-image: url(&quot;https://haxibiao.com/image/head.jpg&quot;);"></i>
         </a>
       </div>
@@ -198,33 +198,56 @@
 
   </div>
 
-  <div class="active-model" style="visibility: hidden;" id="test-active" onclick="offModel('test-active')">
+  <div class="active-model" style="visibility: hidden;" id="me-active" onclick="offModel('me-active')">
 
     <div class="themes-config" style="padding: 25px 50px 80px;background: #FFF;" onclick="ooo000()">
 
       <div>
         <div style="margin-left: auto;display: flex;min-height: 2.5rem;">
           <div style="margin-left: auto;min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-red" title="关闭" onclick="offModel('test-active')"></p>
+            <p class="active-model-topbuts active-model-topbuts-red" title="关闭" onclick="offModel('me-active')"></p>
           </div>
           <div style="min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-yellow" title="恢复默认" onclick="offModel('test-active')"></p>
+            <p class="active-model-topbuts active-model-topbuts-yellow" title="恢复默认" onclick="offModel('me-active')"></p>
           </div>
           <div style="min-width: 2rem;text-align: center;justify-content: center;">
-            <p class="active-model-topbuts active-model-topbuts-green" title="保存" onclick="offModel('test-active')"></p>
+            <p class="active-model-topbuts active-model-topbuts-green" title="保存" onclick="setMe()"></p>
           </div>
         </div>
       </div>
 
       <div>
-        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">Test 测试</h2>
+        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">模板配置</h2>
         <div class="theme-wrapper">
-          <label>测试：</label>
-          <input type="text" value="#FFF" autocomplete="off" placeholder="代码" style="padding: 0 10px;"
+          <label>By 用户名：</label>
+          <input type="text" value="xxx" autocomplete="off" placeholder="请输入姓名" style="padding: 0 10px;"
+            id="font_by_name" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+        </div>
+      </div>
+
+      <div>
+        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">邮箱配置</h2>
+        <div class="theme-wrapper">
+          <label>邮箱用户名：</label>
+          <input type="text" value="test@haxibiao.com" autocomplete="off" placeholder="请输入邮箱" style="padding: 0 10px;"
+            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+        </div>
+		<div class="theme-wrapper">
+          <label>邮箱 SMTP 密码：</label>
+          <input type="text" value="" autocomplete="off" placeholder="请输入 SMTP 授权码" style="padding: 0 10px;"
             id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
         </div>
       </div>
 
+      <div>
+        <h2 style="margin-top: 2.5rem;margin-bottom: 0;">GitLab 配置</h2>
+        <div class="theme-wrapper">
+          <label>Commit SSR 链接：</label>
+          <input type="text" value="" autocomplete="off" placeholder="请输入 SSR 链接" style="padding: 0 10px;"
+            id="font_color" οnkeypress="OutputCttColorEnterPress(event,'font_color')" onkeydown="OutputCttColorEnterPress(event,'font_color')">
+        </div>
+      </div>
+	
     </div>
 
   </div>
@@ -431,6 +454,23 @@
     // getCursorPosition(document.getElementById('input'));
     insertAtCursor(document.getElementById('input'),"33333");
   }
+
+
+</script>
+
+<script>
+
+  	// 打开用户面板
+	function onMe(){
+		onModel('me-active');
+		var ByName = localStorage.us_ByName ? localStorage.us_ByName : 'xxx';
+		document.getElementById('font_by_name').value = ByName;
+	}
+
+	function setMe() {
+		var ByNameVal = document.getElementById('font_by_name').value;
+		localStorage.us_ByName = ByNameVal ? ByNameVal : "xxx";
+	}
 
 
 </script>
