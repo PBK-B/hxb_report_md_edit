@@ -74,6 +74,13 @@ module.exports = {
                 to: '../css/index.css',
                 toType: 'file',
                 force: true
+            },
+            {
+                context: path.join(__dirname, './src'),
+                from: "js/turndown.js",
+                to: '../js/turndown.js',
+                toType: 'file',
+                force: true
             }
         ])
     ]
