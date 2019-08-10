@@ -44,6 +44,8 @@
       width: 50%;
       position: absolute;
       left: 0px;
+	  tab-size: 4;
+	  -moz-tab-size: 4;
     }
 
     #output {
@@ -448,12 +450,13 @@
     }
   }
 
-  setTimeout(funcName(),500);
-
-  function funcName() {
-    // getCursorPosition(document.getElementById('input'));
-    insertAtCursor(document.getElementById('input'),"33333");
-  }
+  // 实现 Tab 生效
+  document.getElementById('input').onkeydown = function(e){
+	if (e.keyCode == 9) {
+		insertAtCursor(document.getElementById('input'),'\t');
+		return false;
+	}
+}
 
 
 </script>
