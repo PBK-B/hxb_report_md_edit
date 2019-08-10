@@ -1,6 +1,7 @@
 <Logo>
 # <?php echo date('m') . '月' . date('d') . '号' ?>日报
 By：<?php echo isset($_GET['by_name']) ? $_GET['by_name'] : 'xxx'; ?>
+
 ****
 
 ### 昨日工作成果
