@@ -133,7 +133,7 @@
         <button class="c-btn" data-clipboard-action="cut" data-clipboard-target="#outputCtt" id="cp_btn">全选报告</button>
         <button class="c-btn" id="st_btn" onclick="onSetting()">个性设置</button>
         <a class="header-link user-center" onclick="onMe()">
-          <i class="com-avatar" style="background-image: url(&quot;https://haxibiao.com/image/head.jpg&quot;);"></i>
+          <i class="com-avatar" style="background-image: url(&quot;https://images.unsplash.com/placeholder-avatars/extra-large.jpg&quot;);"></i>
         </a>
       </div>
     </div>
