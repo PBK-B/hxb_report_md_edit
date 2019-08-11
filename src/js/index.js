@@ -93,7 +93,7 @@ var OnlineMarkdown = {
       $convert.trigger('click');
     }
   },
-
+    
   updateOutput: function () {
     var val = converter.makeHtml($('#input').val());
     $('#output .wrapper').html(val);

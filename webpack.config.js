@@ -52,8 +52,8 @@ module.exports = {
             },
             {
                 context: path.join(__dirname, './src'),
-                from: "index.html",
-                to: '../index.html',
+                from: "css/prettify.css",
+                to: '../css/prettify.css',
                 force: true
             },
             {

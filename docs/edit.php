@@ -273,7 +273,7 @@
   setOutputCttColor(us_OutputCttColor);
   setHtagColor(us_HtagColor);
 
-  document.getElementById('input').value = '#666';
+  // document.getElementById('input').value = '#666';
 
   // 打开设置弹窗
   function onSetting() {
