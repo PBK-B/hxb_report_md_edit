@@ -41,11 +41,12 @@
     }
 
     #input {
+      height: 100%;
       width: 50%;
       position: absolute;
       left: 0px;
-	  tab-size: 4;
-	  -moz-tab-size: 4;
+      tab-size: 4;
+      -moz-tab-size: 4;
     }
 
     #output {
