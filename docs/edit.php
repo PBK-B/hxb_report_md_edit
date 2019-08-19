@@ -567,6 +567,7 @@
 </script>
 
 <script>
+function testhtml() {
   var turndownService = new window.TurndownService();
   // 初始化 html 转 mkd 工具
 
@@ -647,6 +648,8 @@
     editableDiv.attachEvent('onpaste', handlepaste);
     // IE <= 8
   }
+
+}
 
 </script>
 
